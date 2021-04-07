@@ -1,11 +1,8 @@
 <?php /* Template Name: About Us Template */
-get_header();
 
+get_header();
 ?>
 
-<!-- ***** Preloader End ***** -->
-
-<!-- Page Content -->
 <!-- Banner Starts Here -->
 <div class="heading-page header-text">
     <section class="page-heading">
@@ -13,8 +10,8 @@ get_header();
             <div class="row">
                 <div class="col-lg-12">
                     <div class="text-content">
-                        <h4>about us</h4>
-                        <h2>more about us!</h2>
+                        <?php the_title('<h4>', '</h4>') ?>
+                        <h2><?php _e('more about us!', 'demo') ?></h2>
                     </div>
                 </div>
             </div>
@@ -22,15 +19,12 @@ get_header();
     </section>
 </div>
 
-<!-- Banner Ends Here -->
-
-
+<!-- Display content -->
 <section class="about-us">
     <div class="container">
        <?php the_content(); ?>
     </div>
 </section>
-
 
 <?php
 get_footer();

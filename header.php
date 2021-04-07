@@ -23,25 +23,26 @@
 <body <?php body_class(); ?>>
 <?php wp_body_open(); ?>
 <div id="page" class="site">
-        <!-- Header -->
-        <header class="">
-            <nav class="navbar navbar-expand-lg">
-                <div class="container">
-                    <a class="navbar-brand" href="<?php echo get_home_url(); ?>"><h2>Stand Blog<em>.</em></h2></a>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarResponsive">
-                        <?php
-                        wp_nav_menu( [
-                            'theme_location'  => 'Primary',
-                            'menu'            => 'menu',
-                            'container'       => false,
-                            'menu_class'      => 'navbar-nav ml-auto',
-                        ] );
-                        ?>
-                    </div>
+    <!-- Header -->
+    <header class="">
+        <nav class="navbar navbar-expand-lg">
+            <div class="container">
+                <a class="navbar-brand" href="<?php echo get_home_url(); ?>"><h2>Stand Blog<em>.</em></h2></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <?php
+                    wp_nav_menu( [
+                        'theme_location'  => 'Primary',
+                        'menu'            => 'menu',
+                        'container'       => false,
+                        'menu_class'      => 'navbar-nav ml-auto',
+                    ] );
+                    ?>
                 </div>
-            </nav>
-        </header>
-        <main id="primary" class="site-main">
+            </div>
+        </nav>
+    </header>
+    <!-- Page Content -->
+    <main id="primary" class="site-main">

@@ -17,10 +17,7 @@ if ( ! function_exists( 'demo_setup' ) ) :
             )
         );
     }
-
-
 endif;
-
 add_action( 'after_setup_theme', 'demo_setup' );
 
 function demo_widgets_init() {
@@ -95,9 +92,24 @@ function kitchen_theme_scripts() {
         get_template_directory_uri() . '/assets/js/accordions.js', array('jquery'), _S_VERSION, true
     );
 
-}
+    wp_register_script(
+        'my_loadmore',
+        get_stylesheet_directory_uri() . '/assets/js/myloadmore.js', array('jquery')
+    );
 
+    wp_localize_script(
+        'my_loadmore',
+        'demo_ajax_params', array(
+            'ajaxurl' => site_url() . '/wp-admin/admin-ajax.php'
+        )
+    );
+
+    wp_enqueue_script( 'my_loadmore' );
+
+}
 add_action( 'wp_enqueue_scripts', 'kitchen_theme_scripts' );
+
+
 
 require get_template_directory() . '/functions/helper.php';
 

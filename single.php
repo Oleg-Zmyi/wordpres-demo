@@ -35,17 +35,17 @@ try {
    echo 'Something went wrong';
 }
 
-
 ?>
 
+<!-- Banner -->
 <div class="heading-page header-text">
     <section class="page-heading">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
                     <div class="text-content">
-                        <h4><?php _e('Post Details'); ?></h4>
-                        <h2><?php _e('Single blog post'); ?></h2>
+                        <h4><?php _e('Post Details', 'demo'); ?></h4>
+                        <h2><?php _e('Single blog post', 'demo'); ?></h2>
                     </div>
                 </div>
             </div>
@@ -53,8 +53,10 @@ try {
     </section>
 </div>
 
+<!-- Include Call to Action file -->
 <?php get_template_part('template-parts/cta') ?>
 
+<!-- Display post -->
 <section class="blog-posts grid-system">
     <div class="container">
         <div class="row">
@@ -105,8 +107,7 @@ try {
                                     </div>
                                 </div>
                             </div>
-
-<!--            Display all Comments               -->
+                            <!-- Display all Comments -->
                             <div class="col-lg-12">
                                 <div class="sidebar-item comments">
                                     <div class="sidebar-heading">
@@ -135,13 +136,12 @@ try {
                                     <?php endif; ?>
                                 </div>
                             </div>
-<!--            End all Comments               -->
-<!--            Display form for new comment              -->
+                            <!-- Display form for new comment -->
                             <?php if ( comments_open() ) : ?>
                             <div class="col-lg-12">
                                 <div class="sidebar-item submit-comment">
                                     <div class="sidebar-heading">
-                                        <h2><?php _e('Your comment')?></h2>
+                                        <h2><?php _e('Your comment', 'demo')?></h2>
                                     </div>
                                     <div class="content">
                                         <form id="comment" action="" method="post">
@@ -149,8 +149,7 @@ try {
                                                 <input type="hidden" value="<?php the_ID(); ?>" name="post_id">
                                                 <?php if (is_user_logged_in()) : ?>
                                                     <?php $user_id = get_current_user_id() ;
-                                                          $user_data = wp_get_current_user();
-                                                    ?>
+                                                          $user_data = wp_get_current_user(); ?>
                                                         <input type="hidden" value="<?= $user_data->ID; ?>" name="user_id">
                                                         <input type="hidden" value="<?= $user_data->user_email; ?>" name="user_email">
                                                         <input type="hidden" value="<?= $user_data->user_nicename; ?>" name="user_name">
@@ -184,14 +183,12 @@ try {
                                             </div>
                                         </form>
                                     </div>
-
                                 </div>
                             </div>
                             <?php endif; ?>
                         </div>
                     </div>
-                <?php endwhile;
-                ?>
+                <?php endwhile; ?>
             </div>
             <?php get_sidebar(); ?>
         </div>

@@ -1,2 +1,2 @@
 <?php
-echo '<p>' . __('There no any posts to show');
+echo '<p>' . __('There are no posts to display' , 'demo') . '</p>';
