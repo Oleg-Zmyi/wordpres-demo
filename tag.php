@@ -30,9 +30,11 @@ get_header();
                             <?php while (have_posts()) : the_post(); ?>
                                 <div class="col-lg-6">
                                     <div class="blog-post">
-                                        <div class="blog-thumb">
-                                            <?php the_post_thumbnail(); ?>
-                                        </div>
+                                        <?php if (has_post_thumbnail()) : ?>
+                                            <div class="blog-thumb">
+                                                <?php the_post_thumbnail(); ?>
+                                            </div>
+                                        <?php endif; ?>
                                         <div class="down-content">
                                             <?php $category_name = get_the_category(); ?>
                                             <span><?php echo $category_name[0]->name; ?></span>

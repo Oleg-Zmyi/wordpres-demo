@@ -67,9 +67,11 @@ try {
                         <div class="row">
                             <div class="col-lg-12">
                                 <div class="blog-post">
-                                    <div class="blog-thumb">
-                                        <?php the_post_thumbnail(); ?>
-                                    </div>
+                                    <?php if (has_post_thumbnail()) : ?>
+                                        <div class="blog-thumb">
+                                            <?php the_post_thumbnail(); ?>
+                                        </div>
+                                    <?php endif; ?>
                                     <div class="down-content">
                                         <?php $category_name = get_the_category(); ?>
                                         <span><?php echo $category_name[0]->name; ?></span>
@@ -87,11 +89,7 @@ try {
                                                     <div class="col-6">
                                                         <ul class="post-tags">
                                                             <li><i class="fa fa-tags"></i></li>
-                                                            <?php for ($i=0; $i < count($tags); $i++) :
-                                                                    echo '<li><a href="' . get_home_url() . '/tag/' . $tags[$i]->name .'">' . $tags[$i]->name . '</a>' ;
-                                                                    if ($i != count($tags) - 1) echo ',';
-                                                                    echo '</li> ';
-                                                            endfor; ?>
+                                                            <?php the_tags('<li><a>', ', ', '</a></li>'); ?>
                                                         </ul>
                                                     </div>
                                                 <?php endif; ?>

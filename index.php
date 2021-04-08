@@ -56,37 +56,35 @@ get_header();
                             $query->the_post(); ?>
                             <div class="col-lg-6">
                                 <div class="blog-post">
-                                <div class="blog-thumb">
-                                    <?php the_post_thumbnail(); ?>
-                                </div>
-                                <div class="down-content">
-                                    <?php $category_name = get_the_category(); ?>
-                                    <span><?php echo $category_name[0]->name; ?></span>
-                                    <a href="<?= the_permalink(); ?>"><h4><?php the_title(); ?></h4></a>
-                                    <ul class="post-info">
-                                        <li><a href="#"><?php the_author(); ?></a></li>
-                                        <li><a href="#"><?php the_date(); ?></a></li>
-                                        <li><a href="#"><?php comments_number(); ?></a></li>
-                                    </ul>
-                                    <?php the_excerpt(); ?>
-                                    <div class="post-options">
-                                        <div class="row">
-                                            <?php $tags = get_the_tags();
-                                            if ($tags) : ?>
-                                                <div class="col-lg-12">
-                                                    <ul class="post-tags">
-                                                        <li><i class="fa fa-tags"></i></li>
-                                                        <?php for ($i=0; $i < count($tags); $i++) :
-                                                            echo '<li><a href="#">' . $tags[$i]->name . '</a>' ;
-                                                            if ($i != count($tags) - 1) echo ',';
-                                                            echo '</li> ';
-                                                        endfor; ?>
-                                                    </ul>
-                                                </div>
-                                            <?php endif; ?>
+                                    <?php if (has_post_thumbnail()) : ?>
+                                        <div class="blog-thumb">
+                                            <?php the_post_thumbnail(); ?>
+                                        </div>
+                                    <?php endif; ?>
+                                    <div class="down-content">
+                                        <?php $category_name = get_the_category(); ?>
+                                        <span><?php echo $category_name[0]->name; ?></span>
+                                        <a href="<?= the_permalink(); ?>"><h4><?php the_title(); ?></h4></a>
+                                        <ul class="post-info">
+                                            <li><a href="#"><?php the_author(); ?></a></li>
+                                            <li><a href="#"><?php the_date(); ?></a></li>
+                                            <li><a href="#"><?php comments_number(); ?></a></li>
+                                        </ul>
+                                        <?php the_excerpt(); ?>
+                                        <div class="post-options">
+                                            <div class="row">
+                                                <?php $tags = get_the_tags();
+                                                if ($tags) : ?>
+                                                    <div class="col-lg-12">
+                                                        <ul class="post-tags">
+                                                            <li><i class="fa fa-tags"></i></li>
+                                                            <?php the_tags('<li><a>', ', ', '</a></li>'); ?>
+                                                        </ul>
+                                                    </div>
+                                                <?php endif; ?>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
                                 </div>
                             </div>
                         <?php endwhile; ?>
