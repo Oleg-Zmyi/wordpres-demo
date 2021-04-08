@@ -56,9 +56,9 @@ get_header();
                             $query->the_post(); ?>
                             <div class="col-lg-6">
                                 <div class="blog-post">
-                                    <?php if (has_post_thumbnail()) : ?>
+                                    <?php if (has_post_thumbnail('')) : ?>
                                         <div class="blog-thumb">
-                                            <?php the_post_thumbnail(); ?>
+                                            <?php the_post_thumbnail('blog'); ?>
                                         </div>
                                     <?php endif; ?>
                                     <div class="down-content">
@@ -67,7 +67,7 @@ get_header();
                                         <a href="<?= the_permalink(); ?>"><h4><?php the_title(); ?></h4></a>
                                         <ul class="post-info">
                                             <li><a href="#"><?php the_author(); ?></a></li>
-                                            <li><a href="#"><?php the_date(); ?></a></li>
+                                            <li><a href="#"><?php echo get_the_date('M d, Y'); ?></a></li>
                                             <li><a href="#"><?php comments_number(); ?></a></li>
                                         </ul>
                                         <?php the_excerpt(); ?>

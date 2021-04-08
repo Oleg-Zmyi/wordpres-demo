@@ -11,6 +11,9 @@ if ( ! function_exists( 'demo_setup' ) ) :
         add_theme_support( 'automatic-feed-links' );
         add_theme_support( 'title-tag' );
         add_theme_support( 'post-thumbnails' );
+        add_image_size( 'blog', 350, 320, false );
+        add_image_size( 'slider', 626, 542, true );
+        add_image_size( 'home', 730, 322, true );
         register_nav_menus(
             array(
                 'menu' => esc_html__( 'Primary', 'demo' ),

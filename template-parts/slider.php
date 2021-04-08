@@ -20,8 +20,8 @@ if ($query->have_posts()) : ?>
                                 </div>
                                 <a href="<?= the_permalink(); ?>"><?php the_title('<h4>', '</h4>'); ?></a>
                                 <ul class="post-info">
-                                    <li><a href="#"><?php the_author() ?></a></li>
-                                    <li><a href="#"><?php the_date() ?></a></li>
+                                    <li><a href="#"><?php the_author(); ?></a></li>
+                                    <li><a href="#"><?php echo get_the_date('M d, Y'); ?></a></li>
                                     <li><a href="#"><?php comments_number() ; ?></a></li>
                                 </ul>
                             </div>
